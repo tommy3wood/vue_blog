@@ -1,26 +1,28 @@
 <template>
   <div class="posts-new">
-    <form v-on:submit.prevent="createPost()">
-      <h1>New Post</h1>
+    <div class="container">
+      <form v-on:submit.prevent="createPost()">
+        <h1>New Post</h1>
+        <ul>
+          <li v-for="error in errors"> {{error}} </li>
+        </ul>
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" class="form-control" v-model="name">
+        </div>
+        <div class="form-group">
+          <label>Body:</label>
+          <input type="text" class="form-control" v-model="body">
+        </div>
+        <div class="form-group">
+          <label>Image:</label>
+          <input type="text" class="form-control" v-model="image">
+        </div>
 
-      <ul>
-        <li v-for="error in errors"> {{error}} </li>
-      </ul>
 
-      <div>
-        Title: <input type="text" v-model="title">
-      </div>
-
-      <div>
-        Post: <input type="text" v-model="body">
-      </div>
-
-      <div>
-        image: <input type="text" v-model="image">
-      </div>
-
-      <input type="submit" class="btn btn-primary" value="Flippin Flappin post your keyboard tappin">
-    </form>
+        <input type="submit" class="btn btn-primary" value="Flippin Flappin post your keyboard tappin">
+      </form>
+    </div>
   </div>
 </template>
 
